@@ -3,7 +3,17 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'index.html')
+    tempalte_name = 'index.html'
+    receitas_dinamicas = {
+        1: 'Carne de Panel',
+        2: 'Lazanha',
+        3: 'Costelinha Agre-Doce',
+        4: 'Bolo de Chocolate'
+    }
+    context = {
+        'nome_receitas': receitas_dinamicas
+    }
+    return render(request, tempalte_name, context)
 
 
 def receita(request):
