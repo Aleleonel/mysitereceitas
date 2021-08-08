@@ -5,7 +5,7 @@ from .models import Receita
 
 def index(request):
     tempalte_name = 'index.html'
-    receitas = Receita.objects.all()
+    receitas = Receita.objects.order_by('-data_receita').filter(publicada=True)
 
     context = {
         'receitas': receitas
