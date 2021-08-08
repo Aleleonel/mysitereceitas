@@ -20,3 +20,10 @@ def receita(request, receita_id):
      'receita': receita
     }
     return render(request, tempalte_name, context)
+
+
+def buscar(request):
+    tempalte_name = 'buscar.html'
+    context = {
+        'resposta': 'Pagina de busca esta funcionando'}
+    return render(request, tempalte_name, context)
