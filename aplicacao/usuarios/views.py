@@ -22,10 +22,15 @@ def cadastro(request):
         if User.objects.filter(email=email).exists():
             print('Usuario já cadatsratrado')
             return redirect('cadastro')
-        user = User.objects.create_user(username=nome, email=email)
-        # else:
-        #     print(nome, email, senha, senha2)
-        return redirect('login')
+
+        user = User.objects.create_user(
+            username=nome,
+            email=email,
+            password=senha
+            )
+        user.save()
+        print('Ususario cadastrado com sucesso')
+        return redirect('cadastro')
     else:
         return render(request, template_name)
 
